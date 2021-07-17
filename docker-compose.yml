@@ -1,0 +1,16 @@
+version: "2.4"
+services:
+  jupyter:
+    image: try-causal-inference/jupyter:latest
+    build:
+      context: docker/jupyter
+    environment:
+      PYTHONPATH: /mnt/python
+      JUPYTER_ENABLE_LAB: "yes"
+    volumes:
+    - "./python:/mnt/python"
+    - "./notebook:/mnt/notebook"
+    working_dir: "/mnt/notebook"
+    ports:
+    - "8888:8888"
+
